@@ -1,20 +1,16 @@
-//
-//  Dictionary.cpp
-
-
-#include "./Dictionary.h"
-
 #include <fstream>
 #include <string>
+#include "../Config.hpp"
+#include "Dictionary.hpp"
 
 using namespace std;
 
 Dictionary::Dictionary() {
-	m_languagesPath[0] = "/src/data/Dictionaries/Catalan.dic";
-	m_languagesPath[1] = "/src/data/Dictionaries/Spanish.dic";
-	m_languagesPath[2] = "/src/data/Dictionaries/English.dic";
+    m_languagesPath[0] = DATA_DIRECTORY + "/Dictionaries/Catalan.dic";
+    m_languagesPath[1] = DATA_DIRECTORY + "/Dictionaries/English.dic";
+    m_languagesPath[2] = DATA_DIRECTORY + "/Dictionaries/English.dic";
 
-	setLanguage(ENGLISH);
+    setLanguage(ENGLISH);
 }
 
 void Dictionary::setLanguage(Language l) {

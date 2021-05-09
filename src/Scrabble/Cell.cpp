@@ -1,10 +1,5 @@
-//
-//  Cell.cpp
-//  Scrabble
-//
-
 #include <string>
-#include "./Cell.h"
+#include "Cell.hpp"
 
 using namespace std;
 
@@ -19,8 +14,20 @@ void Cell::setScore(string score) {
 		m_scoreEffect = TW;
 	else
 		m_scoreEffect = NO_EFFECT;
+
 	m_empty = true;
 	m_tilePlayed = false;
 }
 
+void Cell::setTile(Tile const tile) {
+    m_tile.setLetter(tile.getLetter());
+    m_tile.setScore(tile.getScore());
+    m_empty = false;
+}
 
+void Cell::deleteTile() {
+    m_tile.setLetter(' ');
+    m_tile.setScore(0);
+    m_empty = true;
+    m_tilePlayed = false;
+}
